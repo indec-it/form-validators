@@ -4,7 +4,7 @@
   "description": "Common validators using little or no dependencies",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nyc --check-coverage --lines 100 --functions 100 --branches 100 mocha"
   },
   "repository": {
     "type": "git",
