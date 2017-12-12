@@ -1,0 +1,4 @@
+language: node_js
+
+notifications:
+  slack: indec-sistemas:U34T7wkSbzuMWCcXIw9DOY05
