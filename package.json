@@ -22,5 +22,11 @@
   "homepage": "https://github.com/indec-it/form-validators#readme",
   "dependencies": {
     "lodash": "4.17.4"
+  },
+  "devDependencies": {
+    "mocha": "4.0.1",
+    "nyc": "11.3.0",
+    "should": "13.1.3",
+    "sinon": "4.1.3"
   }
 }
