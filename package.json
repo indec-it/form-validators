@@ -1,0 +1,23 @@
+{
+  "name": "form-validators",
+  "version": "0.0.1",
+  "description": "Common validators using little or no dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indec-it/form-validators.git"
+  },
+  "keywords": [
+    "validators",
+    "javascript"
+  ],
+  "author": "INDEC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/indec-it/form-validators/issues"
+  },
+  "homepage": "https://github.com/indec-it/form-validators#readme"
+}
