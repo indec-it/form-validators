@@ -1,9 +1,8 @@
 
 class Validator {
 
-    constructor(errorMessage, args) {
+    constructor(errorMessage) {
         this.errorMessage = errorMessage;
-        this.args = args;
     }
 
     validate(obj) {
