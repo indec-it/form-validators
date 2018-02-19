@@ -2,7 +2,7 @@ const Validator = require('./Validator');
 
 class GreaterThanValidator extends Validator {
 
-    constructor(value, errorMessage = 'El valor debe ser igual a ') {
+    constructor(value, errorMessage) {
         super(errorMessage);
         this.value = value;
     }

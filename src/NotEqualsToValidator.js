@@ -3,7 +3,7 @@ const lodash = require('lodash');
 
 class NotEqualsToValidator extends Validator {
 
-    constructor(value, errorMessage = 'El valor debe ser distinto de ') {
+    constructor(value, errorMessage) {
         super(errorMessage);
         this.value = value;
     }

@@ -5,13 +5,11 @@ class Validator {
         this.errorMessage = errorMessage;
     }
 
-    validate(obj) {
-        if (!this.isValid(obj)) {
-            throw new Error(this.errorMessage);
-        }
+    getErrorMessage() {
+        return this.errorMessage || 'La respuesta no es válida.';
     }
 
-    isValid(obj) {
+    isValid() {
         throw new Error('Must be implemented in subclass');
     }
 

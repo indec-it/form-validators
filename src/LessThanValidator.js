@@ -2,7 +2,7 @@ const Validator = require('./Validator');
 
 class LessThanValidator extends Validator {
 
-    constructor(max, errorMessage = 'El valor debe ser menor a ') {
+    constructor(max, errorMessage) {
         super(errorMessage);
         this.max = max;
     }

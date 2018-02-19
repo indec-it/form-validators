@@ -1,7 +1,7 @@
 const Validator = require('./Validator');
 
 class EmptyValidator extends Validator {
-    constructor(errorMessage = 'Este campo debe estar vacio') {
+    constructor(errorMessage) {
         super(errorMessage);
     }
 
