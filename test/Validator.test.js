@@ -13,32 +13,6 @@ describe('Validator', () => {
   });
 
 
-  context('#validate', () => {
-
-    it('should return undefined if validation passes', () => {
-
-      sinon.stub(validator, 'isValid').returns(true);
-
-      should(validator.validate()).be.undefined();
-
-      validator.isValid.restore();
-
-    });
-
-    it('should throw Error if validation fails', () => {
-
-      sinon.stub(validator, 'isValid').returns(false);
-
-      should(() => {
-        validator.validate();
-      }).throw('An error message');
-
-      validator.isValid.restore();
-
-    });
-
-  });
-
   context('#isValid', () => {
 
     it('should throw Error as default implementation', () => {
@@ -52,3 +26,5 @@ describe('Validator', () => {
   });
 
 });
+
+//mocha js, sinon, should.
