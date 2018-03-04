@@ -31,7 +31,7 @@ describe('Validator', () => {
 
       should(() => {
         validator.validate();
-      }).throw('An error message');
+      }).throw('Validation failed');
 
       validator.isValid.restore();
 

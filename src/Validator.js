@@ -1,9 +1,17 @@
 
 class Validator {
 
-    constructor(errorMessage, args) {
-        this.errorMessage = errorMessage;
-        this.args = args;
+    constructor() {
+        this.errorMessage = 'Validation failed';
+    }
+
+    get errorMessage() {
+        return this._errorMessage;
+    }
+
+    set errorMessage(errorMessage) {
+        this._errorMessage = errorMessage;
+        return this;
     }
 
     validate(obj) {
