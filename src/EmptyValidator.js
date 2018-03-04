@@ -4,7 +4,7 @@ class EmptyValidator extends Validator {
 
     constructor() {
         super();
-        this.errorMessage = 'Must not be empty';
+        this.withErrorMessage('Must not be empty');
     }
 
     isValid(value){

@@ -6,7 +6,7 @@ class NotEqualsToValidator extends Validator {
 
     constructor(arg) {
         super(arg);
-        this.errorMessage = 'Must be not be equal to ';
+        this.withErrorMessage('Must be not be equal to ');
     }
 
     isValid(value) {

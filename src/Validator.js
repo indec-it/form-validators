@@ -3,25 +3,25 @@ class Validator {
 
     constructor(arg) {
         this._arg = arg;
-        this.errorMessage = 'Validation failed';
+        this.withErrorMessage('Validation failed');
     }
 
     get arg() {
         return this._arg;
     }
 
-    get errorMessage() {
+    errorMessage() {
         return this._errorMessage;
     }
 
-    set errorMessage(errorMessage) {
+    withErrorMessage(errorMessage) {
         this._errorMessage = errorMessage;
         return this;
     }
 
     validate(obj) {
         if (!this.isValid(obj)) {
-            throw new Error(this.errorMessage);
+            throw new Error(this.errorMessage());
         }
     }
 

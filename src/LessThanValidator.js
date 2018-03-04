@@ -5,7 +5,7 @@ class LessThanValidator extends Validator {
 
     constructor(arg) {
         super(arg);
-        this.errorMessage = 'Must be less than ';
+        this.withErrorMessage('Must be less than ');
     }
 
     isValid(value) {

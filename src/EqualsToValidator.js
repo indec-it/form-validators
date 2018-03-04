@@ -6,7 +6,7 @@ class EqualsToValidator extends Validator {
 
     constructor(arg) {
         super(arg);
-        this.errorMessage = 'Must be equal to ';
+        this.withErrorMessage('Must be equal to ');
     }
 
     isValid(value) {

@@ -5,7 +5,7 @@ class GreaterThanValidator extends Validator {
 
     constructor(arg) {
         super(arg);
-        this.errorMessage = 'Must be greater than ';
+        this.withErrorMessage('Must be greater than ');
     }
 
     isValid(value) {
