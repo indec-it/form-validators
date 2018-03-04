@@ -1,8 +1,13 @@
 
 class Validator {
 
-    constructor() {
+    constructor(arg) {
+        this._arg = arg;
         this.errorMessage = 'Validation failed';
+    }
+
+    get arg() {
+        return this._arg;
     }
 
     get errorMessage() {
@@ -23,7 +28,6 @@ class Validator {
     isValid(obj) {
         throw new Error('Must be implemented in subclass');
     }
-
 }
 
 module.exports = Validator;

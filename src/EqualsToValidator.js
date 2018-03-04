@@ -1,0 +1,17 @@
+
+const _ = require('lodash');
+const Validator = require('./Validator');
+
+class EqualsToValidator extends Validator {
+
+    constructor(arg) {
+        super(arg);
+        this.errorMessage = 'Must be equal to ';
+    }
+
+    isValid(value) {
+        return _.isEqual(this.arg, value);
+    }
+}
+
+module.exports = EqualsToValidator;
