@@ -15,11 +15,13 @@ describe('Validator', () => {
 
   context('#validate', () => {
 
-    it('should return undefined if validation passes', () => {
+    it('should not throw Error if validation passes', () => {
 
       sinon.stub(validator, 'isValid').returns(true);
 
-      should(validator.validate()).be.undefined();
+      should(() => {
+        validator.validate();
+      }).not.throwError();
 
       validator.isValid.restore();
 
