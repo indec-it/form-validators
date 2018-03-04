@@ -5,13 +5,8 @@ const Validator = require('./Validator');
 class EqualsToValidator extends Validator {
 
     constructor(arg) {
-        super();
-        this._arg = arg;
+        super(arg);
         this.errorMessage = 'Must be equal to ';
-    }
-
-    get arg() {
-        return this._arg;
     }
 
     isValid(value) {
