@@ -3,15 +3,17 @@ const Validator = require('../src/EmptyValidator');
 
 
 describe('EmptyValidator', () => {
+    context ('#constructor', () => {
+        it ('should throw an Error if there are arguments provided', () => {
+            (() => new Validator(1)).should.throw();
+        });
+    });
 
     context('#isValid', () => {
-
-        it('should be true when empty', () => {
+        it('should be true when there is no value defined', () => {
             new Validator().isValid().should.be.true();
-        });
-
-        it('should be true when undefined', () => {
-            new Validator(undefined).isValid().should.be.true();
+            new Validator().isValid(undefined).should.be.true();
+            new Validator().isValid(null).should.be.true();
         });
 
         it('should be true when null', () => {
@@ -34,12 +36,14 @@ describe('EmptyValidator', () => {
             new Validator().isValid(4).should.be.false();
         });
 
-        it('should be false when object', () => {
-            new Validator().isValid({}).should.be.false();
+        it('should be true when object has no values', () => {
+            new Validator().isValid({}).should.be.true();
+            new Validator().isValid({value: 1}).should.be.false();
         });
 
         it('should be false when array', () => {
-            new Validator().isValid([]).should.be.false();
+            new Validator().isValid([]).should.be.true();
+            new Validator().isValid([1]).should.be.false();
         });
 
     });
