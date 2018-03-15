@@ -24,8 +24,39 @@ class InRangeValidator extends Validator {
         return this._arg2;
     }
 
+    notIncludingLowerBoundary () {
+        this.excludeLowerBoundary = true;
+        return this;
+    }
+
+    notIncludingUpperBoundary () {
+        this.excludeUpperBoundary = true;
+        return this;
+    }
+
+    notIncludingBoundaries () {
+        this.excludeLowerBoundary = true;
+        this.excludeUpperBoundary = true;
+        return this;
+    }
+
     isValid (value) {
-        return value >= this.arg && value <= this.arg2;
+        let passesLowerCondition;
+        let passesUpperCondition;
+
+        if (this.excludeLowerBoundary) {
+            passesLowerCondition = value > this.arg;
+        } else {
+            passesLowerCondition = value >= this.arg
+        }
+
+        if (this.excludeUpperBoundary) {
+            passesUpperCondition = value < this.arg2;
+        } else {
+            passesUpperCondition = value <= this.arg2
+        }
+
+        return passesLowerCondition && passesUpperCondition;
     }
 }
 

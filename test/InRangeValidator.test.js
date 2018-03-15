@@ -41,4 +41,43 @@ describe ('InRangeValidator', () => {
             new Validator(...range).isValid(5).should.be.false();
         });
     });
+
+    context ('#notIncludingLowerBoundary', () => {
+        it ('should be false if value is equal to lower boundary', () => {
+            new Validator(...range).notIncludingLowerBoundary().isValid(0).should.be.false();
+        });
+
+        it ('should be true if value is greater than lower boundary', () => {
+            new Validator(...range).notIncludingLowerBoundary().isValid(0.1).should.be.true();
+            new Validator(...range).notIncludingLowerBoundary().isValid(1).should.be.true();
+        });
+    });
+
+    context ('#notIncludingUpperBoundary', () => {
+        it ('should be false if value is equal to upper boundary', () => {
+            new Validator(...range).notIncludingUpperBoundary().isValid(4).should.be.false();
+        });
+
+        it ('should be true if value is lower than upper boundary', () => {
+            new Validator(...range).notIncludingLowerBoundary().isValid(3).should.be.true();
+            new Validator(...range).notIncludingLowerBoundary().isValid(3.9).should.be.true();
+        });
+    });
+
+    context ('#notIncludingBoundaries', () => {
+        it ('should be false if value is equal to lower boundary', () => {
+            new Validator(...range).notIncludingBoundaries().isValid(4).should.be.false();
+        });
+
+        it ('should be false if value is equal to upper boundary', () => {
+            new Validator(...range).notIncludingBoundaries().isValid(0).should.be.false();
+        });
+
+        it ('should be true if value is between boundaries', () => {
+            new Validator(...range).notIncludingBoundaries().isValid(0.1).should.be.true();
+            new Validator(...range).notIncludingBoundaries().isValid(1).should.be.true();
+            new Validator(...range).notIncludingBoundaries().isValid(3).should.be.true();
+            new Validator(...range).notIncludingBoundaries().isValid(3.9).should.be.true();
+        });
+    });
 });
