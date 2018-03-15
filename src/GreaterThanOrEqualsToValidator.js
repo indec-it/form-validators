@@ -9,7 +9,7 @@ class GreaterThanOrEqualsToValidator extends Validator {
         }
 
         super(arg);
-        this.withErrorMessage('Must be greater than or equals to ');
+        this.withErrorMessage(`Must be greater than or equals to ${arg}.`);
     }
 
     isValid(value) {

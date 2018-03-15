@@ -5,7 +5,7 @@ class EmptyValidator extends Validator {
 
     constructor() {
         if (_.size(arguments)) {
-            throw new Error('There must be no arguments specified');
+            throw new Error('There must be no arguments specified.');
         }
 
         super();

@@ -9,7 +9,7 @@ class AndValidator extends Validator {
         }
 
         super(_.values(arguments));
-        this.withErrorMessage('Must fulfill all validations ');
+        this.withErrorMessage('Must fulfill all validations.');
     }
 
     isValid(value) {

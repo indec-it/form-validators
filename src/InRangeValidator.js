@@ -17,7 +17,7 @@ class InRangeValidator extends Validator {
 
         super(arg);
         this._arg2 = arg2;
-        this.withErrorMessage('Number must be inside specified range or be equal to lower or upper bounds.');
+        this.withErrorMessage(`Number must be between ${arg} and ${arg2} or be equal to lower or upper bounds.`);
     }
 
     get arg2 () {

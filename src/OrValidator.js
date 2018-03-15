@@ -9,7 +9,7 @@ class OrValidator extends Validator {
         }
 
         super(_.values(arguments));
-        this.withErrorMessage('Must fulfill at least one validator ');
+        this.withErrorMessage('Must fulfill at least one validator.');
     }
 
     isValid(value) {

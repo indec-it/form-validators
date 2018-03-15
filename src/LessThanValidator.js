@@ -9,7 +9,7 @@ class LessThanValidator extends Validator {
         }
 
         super(arg);
-        this.withErrorMessage('Must be less than ');
+        this.withErrorMessage(`Must be less than ${arg}.`);
     }
 
     greaterThanZero () {

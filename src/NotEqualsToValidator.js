@@ -5,7 +5,7 @@ class NotEqualsToValidator extends Validator {
 
     constructor(arg) {
         super(arg);
-        this.withErrorMessage('Must be not be equal to ');
+        this.withErrorMessage(`Must be not be equal to ${arg}.`);
     }
 
     isValid(value) {

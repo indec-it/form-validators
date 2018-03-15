@@ -8,7 +8,7 @@ class IncludesValidator extends Validator {
         }
 
         super(arg);
-        this.withErrorMessage('Value must be included within accepted values list.');
+        this.withErrorMessage(`Value must be included within accepted values list: ${_.join(arg)}.`);
     }
 
     isValid (value) {

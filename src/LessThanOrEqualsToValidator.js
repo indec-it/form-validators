@@ -5,7 +5,7 @@ const {GREATER_THAN_ZERO, NO_LESS_THAN_ONE} = require('./constants').lowerBounda
 class LessThanOrEqualsToValidator extends LessThanValidator {
     constructor(arg) {
         super(arg);
-        this.withErrorMessage('Must be less than or equals to ');
+        this.withErrorMessage(`Must be less than or equals to ${arg}.`);
     }
 
     isValid(value) {
