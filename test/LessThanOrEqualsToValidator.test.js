@@ -1,19 +1,6 @@
 const Validator = require('../src/LessThanOrEqualsToValidator');
 
 describe ('LessThanOrEqualsToValidator', () => {
-    context ('#constructor', () => {
-        it ('should throw an Error if the argument is not a number', () => {
-            (() => new Validator('a string')).should.throw();
-            (() => new Validator(null)).should.throw();
-            (() => new Validator({number: 1})).should.throw();
-            (() => new Validator([1])).should.throw();
-            (() => new Validator(true)).should.throw();
-            (() => new Validator(false)).should.throw();
-            (() => new Validator(undefined)).should.throw();
-            (() => new Validator()).should.throw();
-        });
-    });
-
     context ('#isValid', () => {
         it ('should be true for when values are equal', () => {
             new Validator(0).isValid(0).should.be.true();
@@ -25,6 +12,18 @@ describe ('LessThanOrEqualsToValidator', () => {
 
         it ('should be true for 0 <= 1', () => {
             new Validator(1).isValid(0).should.be.true();
+        });
+    });
+
+    context ('#greaterThanZero', () => {
+        it ('should be true when value and argument are greater than zero and equal', () => {
+            new Validator(0.1).greaterThanZero().isValid(0.1).should.be.true();
+        });
+    });
+
+    context ('#noLessThanOne', () => {
+        it ('should be true when value and argument are no less than one and equal', () => {
+            new Validator(1).noLessThanOne().isValid(1).should.be.true();
         });
     });
 });
