@@ -1,19 +1,19 @@
-const _ = require('lodash');
+const {every, size, values} = require('lodash');
 const Validator = require('./Validator');
 
 class AndValidator extends Validator {
 
     constructor() {
-        if (_.size(arguments) < 2) {
+        if (size(arguments) < 2) {
             throw new Error('Validator must receive at least two validations.');
         }
 
-        super(_.values(arguments));
+        super(values(arguments));
         this.withErrorMessage('Must fulfill all validations.');
     }
 
     isValid(value) {
-        return _.every(this.arg, validation => validation.isValid(value));
+        return every(this.arg, validation => validation.isValid(value));
     }
 }
 

@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const {isEqual} = require('lodash');
 const Validator = require('./Validator');
 
 class NotEqualsToValidator extends Validator {
@@ -9,7 +9,7 @@ class NotEqualsToValidator extends Validator {
     }
 
     isValid(value) {
-        return !_.isEqual(this.arg, value);
+        return !isEqual(this.arg, value);
     }
 }
 

@@ -1,10 +1,10 @@
-const _ = require('lodash');
+const {includes, isArray, isObject, size} = require('lodash');
 const Validator = require('./Validator');
 
 class EmptyValidator extends Validator {
 
     constructor() {
-        if (_.size(arguments)) {
+        if (size(arguments)) {
             throw new Error('There must be no arguments specified.');
         }
 
@@ -13,7 +13,7 @@ class EmptyValidator extends Validator {
     }
 
     isValid(value){
-        return value === undefined || value === null || value === '' || value === 0 || (_.isArray(value) && value.length === 0) || (_.isObject(value) && _.values(value).length === 0);
+        return includes([undefined, null, '', 0], value) || ((isArray(value) || isObject(value)) && !size(value));
     }
 }
 

@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const LessThanValidator = require('./LessThanValidator');
 const {GREATER_THAN_ZERO, NO_LESS_THAN_ONE} = require('./constants').lowerBoundaryType;
 

@@ -1,9 +1,9 @@
-const _ = require('lodash');
+const {isNumber} = require('lodash');
 const Validator = require('./Validator');
 
 class GreaterThanValidator extends Validator {
     constructor(arg) {
-        if (!_.isNumber(arg)) {
+        if (!isNumber(arg)) {
             throw new Error('Argument must be a number.');
         }
 

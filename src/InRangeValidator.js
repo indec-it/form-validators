@@ -1,13 +1,13 @@
-const _ = require('lodash');
+const {isNil, isNumber} = require('lodash');
 const Validator = require('./Validator.js');
 
 class InRangeValidator extends Validator {
     constructor (arg, arg2) {
-        if (_.isNil(arg) || _.isNil(arg2)) {
+        if (isNil(arg) || isNil(arg2)) {
             throw new Error('Both lower and upper bounds must be specified.');
         }
 
-        if (!_.isNumber(arg) || !_.isNumber(arg2)) {
+        if (!isNumber(arg) || !isNumber(arg2)) {
             throw new Error('Both arguments must be numbers.');
         }
 

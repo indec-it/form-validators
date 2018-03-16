@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const {isNaN, isString, toNumber} = require('lodash');
 const Validator = require('./Validator');
 
 class NotOnlyNumbersValidator extends Validator {
@@ -12,7 +12,7 @@ class NotOnlyNumbersValidator extends Validator {
             return true;
         }
 
-        return _.isString(value) && _.isNaN(_.toNumber(value));
+        return isString(value) && isNaN(toNumber(value));
     }
 }
 
