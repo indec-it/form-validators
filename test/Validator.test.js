@@ -53,4 +53,15 @@ describe('Validator', () => {
 
   });
 
+  context('#forThis', () => {
+      it('should return itself', () => {
+          should(validator.forThis()).be.an.Object();
+          should(validator.forThis()).be.equals(validator);
+      });
+
+      it('should not attach an entity', () => {
+          should(validator.forThis({name: 'John', surname: 'Doe'})).not.have.property('entity');
+      });
+  });
+
 });
