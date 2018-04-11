@@ -1,16 +1,15 @@
-
-const _ = require('lodash');
+const {isEqual} = require('lodash');
 const Validator = require('./Validator');
 
 class NotEqualsToValidator extends Validator {
 
     constructor(arg) {
         super(arg);
-        this.withErrorMessage('Must be not be equal to ');
+        this.withErrorMessage(`Must be not be equal to ${arg}.`);
     }
 
     isValid(value) {
-        return !_.isEqual(this.arg, value);
+        return !isEqual(this.arg, value);
     }
 }
 

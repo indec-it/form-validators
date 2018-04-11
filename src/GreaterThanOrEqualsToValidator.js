@@ -1,19 +1,20 @@
 const {isNumber} = require('lodash');
 const Validator = require('./Validator');
 
-class GreaterThanValidator extends Validator {
+class GreaterThanOrEqualsToValidator extends Validator {
+
     constructor(arg) {
         if (!isNumber(arg)) {
             throw new Error('Argument must be a number.');
         }
 
         super(arg);
-        this.withErrorMessage(`Must be greater than ${arg}.`);
+        this.withErrorMessage(`Must be greater than or equals to ${arg}.`);
     }
 
     isValid(value) {
-        return value > this.arg;
+        return value >= this.arg;
     }
 }
 
-module.exports = GreaterThanValidator;
+module.exports = GreaterThanOrEqualsToValidator;
