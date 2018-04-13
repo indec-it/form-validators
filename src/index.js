@@ -11,6 +11,7 @@ import InRangeValidator from './InRangeValidator';
 import LessThanOrEqualsToValidator from './LessThanOrEqualsToValidator';
 import LessThanValidator from './LessThanValidator';
 import NotEqualsToValidator from './NotEqualsToValidator';
+import NotIncludesValidator from './NotIncludesValidator';
 import NotOnlyNumbersValidator from './NotOnlyNumbersValidator';
 import OrValidator from './OrValidator';
 
@@ -26,5 +27,6 @@ export {InRangeValidator};
 export {LessThanOrEqualsToValidator};
 export {LessThanValidator};
 export {NotEqualsToValidator};
+export {NotIncludesValidator};
 export {NotOnlyNumbersValidator};
 export {OrValidator};
