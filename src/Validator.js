@@ -19,6 +19,10 @@ class Validator {
         return this;
     }
 
+    forThis() {
+        return this;
+    }
+
     validate(obj) {
         if (!this.isValid(obj)) {
             throw new Error(this.errorMessage());
