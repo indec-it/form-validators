@@ -2,7 +2,7 @@
 const should = require('should');
 const sinon = require('sinon');
 const Validator = require('../src/Validator');
-
+const {ERROR, WARNING} = require('../src/constants').validationStates;
 
 describe('Validator', () => {
 
@@ -64,4 +64,47 @@ describe('Validator', () => {
       });
   });
 
+    context('#onInvalidReturn', () => {
+        it('should add a state for invalid results', () => {
+           validator.onInvalidReturn(WARNING).should.have.property('invalidState').which.is.equal(WARNING);
+
+        });
+
+        it('should return itself', () => {
+            should(validator.onInvalidReturn()).be.an.Object();
+        });
+
+        it('should return undefined invalidState if none was provided', () => {
+            validator.onInvalidReturn().should.have.property('invalidState').which.is.undefined();
+        });
+    });
+
+    context('#hasBlockerState', () => {
+        it('should be true if is not valid and invalid state was set to WARNING', () => {
+            sinon.stub(validator, 'isValid').returns(false);
+
+            validator.onInvalidReturn(ERROR);
+            validator.hasBlockerState('a non valid value').should.be.true();
+
+            validator.isValid.restore();
+        });
+
+        it('should be false if is valid for whatever invalid state was set', () => {
+            sinon.stub(validator, 'isValid').returns(true);
+
+            validator.onInvalidReturn(ERROR);
+            validator.hasBlockerState('a valid value').should.be.false();
+
+            validator.isValid.restore();
+        });
+
+        it('should be false if it is not valid and invalid state was set to ERROR', () => {
+            sinon.stub(validator, 'isValid').returns(false);
+
+            validator.onInvalidReturn(WARNING);
+            validator.hasBlockerState('a non valid value').should.be.false();
+
+            validator.isValid.restore();
+        });
+    });
 });
