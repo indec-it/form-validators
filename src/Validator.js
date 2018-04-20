@@ -29,6 +29,10 @@ class Validator {
         return this;
     }
 
+    against() {
+        return this;
+    }
+
     onInvalidReturn(invalidState) {
         this._invalidState = invalidState;
         return this;
