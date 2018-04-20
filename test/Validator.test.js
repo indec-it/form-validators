@@ -107,4 +107,15 @@ describe('Validator', () => {
             validator.isValid.restore();
         });
     });
+
+    context('#against', () => {
+        it('should return itself', () => {
+            should(validator.against()).be.an.Object();
+            should(validator.against()).be.equals(validator);
+        });
+
+        it('should not attach an entity', () => {
+            should(validator.against({name: 'John', surname: 'Doe'})).not.have.property('otherEntity');
+        });
+    });
 });
