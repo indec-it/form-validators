@@ -118,4 +118,25 @@ describe('Validator', () => {
             should(validator.against({name: 'John', surname: 'Doe'})).not.have.property('otherEntity');
         });
     });
+
+    context('#getValidationResult', () => {
+        it('should return an object', () => {
+            should(validator.getValidationResult()).be.an.Object();
+            should(validator.getValidationResult()).have.property('danger');
+            should(validator.getValidationResult()).have.property('warning');
+            should(validator.getValidationResult()).have.property('errorMessage');
+        });
+
+        it('should be true for warning property if invalidState is WARNING', () => {
+            validator.onInvalidReturn(WARNING);
+            should(validator.getValidationResult()).have.properties({warning: true});
+            should(validator.getValidationResult()).have.properties({danger: false});
+        });
+
+        it('should be true for danger property if invalidState is ERROR', () => {
+            validator.onInvalidReturn(ERROR);
+            should(validator.getValidationResult()).have.properties({danger: true});
+            should(validator.getValidationResult()).have.properties({warning: false});
+        });
+    });
 });

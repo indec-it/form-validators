@@ -1,4 +1,4 @@
-const {ERROR} = require('./constants').validationStates;
+const {ERROR, WARNING} = require('./constants').validationStates;
 
 class Validator {
 
@@ -45,6 +45,14 @@ class Validator {
      */
     hasBlockerState(obj) {
         return !this.isValid(obj) && this.invalidState === ERROR;
+    }
+
+    getValidationResult() {
+        return {
+            danger: this.invalidState === ERROR,
+            warning: this.invalidState === WARNING,
+            errorMessage: this.errorMessage()
+        };
     }
 
     validate(obj) {
