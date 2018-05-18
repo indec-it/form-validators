@@ -49,9 +49,9 @@ class Validator {
 
     getValidationResult() {
         return {
-            danger: this.invalidState === ERROR,
-            warning: this.invalidState === WARNING,
-            errorMessage: this.errorMessage()
+            hasFailed: this.invalidState === ERROR,
+            hasWarning: this.invalidState === WARNING,
+            message: this.errorMessage()
         };
     }
 

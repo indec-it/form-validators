@@ -122,21 +122,21 @@ describe('Validator', () => {
     context('#getValidationResult', () => {
         it('should return an object', () => {
             should(validator.getValidationResult()).be.an.Object();
-            should(validator.getValidationResult()).have.property('danger');
-            should(validator.getValidationResult()).have.property('warning');
-            should(validator.getValidationResult()).have.property('errorMessage');
+            should(validator.getValidationResult()).have.property('hasFailed');
+            should(validator.getValidationResult()).have.property('hasWarning');
+            should(validator.getValidationResult()).have.property('message');
         });
 
         it('should be true for warning property if invalidState is WARNING', () => {
             validator.onInvalidReturn(WARNING);
-            should(validator.getValidationResult()).have.properties({warning: true});
-            should(validator.getValidationResult()).have.properties({danger: false});
+            should(validator.getValidationResult()).have.properties({hasWarning: true});
+            should(validator.getValidationResult()).have.properties({hasFailed: false});
         });
 
         it('should be true for danger property if invalidState is ERROR', () => {
             validator.onInvalidReturn(ERROR);
-            should(validator.getValidationResult()).have.properties({danger: true});
-            should(validator.getValidationResult()).have.properties({warning: false});
+            should(validator.getValidationResult()).have.properties({hasFailed: true});
+            should(validator.getValidationResult()).have.properties({hasWarning: false});
         });
     });
 });
