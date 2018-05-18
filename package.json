@@ -4,9 +4,17 @@
   "description": "Common validators using little or no dependencies",
   "main": "src/index.js",
   "scripts": {
-    "test": "nyc --check-coverage --lines 100 --functions 100 --branches 100 mocha"
+    "test": "nyc --check-coverage --lines 100 --functions 100 --branches 100 mocha",
+    "eslint": "eslint ./",
+    "precommit": "npm run eslint && npm test",
+    "commitmsg": "commitlint -e"
   },
   "devDependencies": {
+    "@commitlint/cli": "^6.2.0",
+    "@commitlint/travis-cli": "^6.2.0",
+    "eslint": "^4.19.1",
+    "eslint-plugin-lodash": "^2.7.0",
+    "husky": "^0.14.3",
     "lodash": "^4.17.10",
     "mocha": "^5.1.1",
     "nyc": "^11.8.0",
@@ -30,7 +38,7 @@
   ],
   "author": "INDEC (https://github.com/indec-it)",
   "engines": {
-    "node": ">=6.11"
+    "node": ">=6.14"
   },
   "license": "MIT"
 }
