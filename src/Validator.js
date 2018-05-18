@@ -61,7 +61,7 @@ class Validator {
         }
     }
 
-    isValid(obj) {
+    isValid() {
         throw new Error('Must be implemented in subclass');
     }
 }

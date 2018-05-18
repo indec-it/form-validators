@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const Validator = require('../src/InRangeValidator');
 
 describe ('InRangeValidator', () => {

@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const Validator = require('../src/IncludesValidator');
 
 describe ('IncludesValidator', () => {
