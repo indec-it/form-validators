@@ -1,13 +1,11 @@
+**/.*/
 # node.js
 #
-node_modules
-npm-debug.log
+node_modules/
 
 coverage
-.nyc_output
 *.log
 
-.idea/
 .env
 # OSX
 #

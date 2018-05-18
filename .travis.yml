@@ -1,4 +1,11 @@
+sudo: false
 language: node_js
-
+git:
+  depth: 3
+node_js:
+  - "6"
+  - "8"
+before_install:
+  - "export TRAVIS_COMMIT_MSG=\"`git log --format=%B --no-merges -n 1`\""
 notifications:
   slack: indec-sistemas:U34T7wkSbzuMWCcXIw9DOY05
