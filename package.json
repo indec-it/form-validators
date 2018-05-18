@@ -1,5 +1,5 @@
 {
-  "name": "form-validators",
+  "name": "@indec/form-validators",
   "version": "0.0.1",
   "description": "Common validators using little or no dependencies",
   "main": "src/index.js",

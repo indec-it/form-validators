@@ -1,0 +1,5 @@
+{
+  "name": "@indec/form-validators/constants",
+  "private": true,
+  "main": "../src/constants"
+}
