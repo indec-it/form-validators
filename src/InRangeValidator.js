@@ -47,13 +47,13 @@ class InRangeValidator extends Validator {
         if (this.excludeLowerBoundary) {
             passesLowerCondition = value > this.arg;
         } else {
-            passesLowerCondition = value >= this.arg
+            passesLowerCondition = value >= this.arg;
         }
 
         if (this.excludeUpperBoundary) {
             passesUpperCondition = value < this.arg2;
         } else {
-            passesUpperCondition = value <= this.arg2
+            passesUpperCondition = value <= this.arg2;
         }
 
         return passesLowerCondition && passesUpperCondition;

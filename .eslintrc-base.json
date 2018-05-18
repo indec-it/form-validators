@@ -37,7 +37,11 @@
       "member"
     ],
     "lodash/prop-shorthand": [
-      2,
+      "error",
+      "never"
+    ],
+    "lodash/matches-prop-shorthand": [
+      "error",
       "never"
     ]
   }

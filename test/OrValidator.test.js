@@ -15,7 +15,7 @@ describe('OrValidator', () => {
 
     context('#isValid', () => {
         it('should be true for at least one fulfilled condition', () => {
-          should(new OrValidator(new GreaterThanValidator(42), new EqualsToValidator(42)).isValid(42)).be.true();
+            should(new OrValidator(new GreaterThanValidator(42), new EqualsToValidator(42)).isValid(42)).be.true();
         });
 
         it('should be true for a nested complex condition', () => {
@@ -28,7 +28,7 @@ describe('OrValidator', () => {
         });
 
         it('should be false when no fulfilled conditions', () => {
-          should(new OrValidator(new LessThanValidator(50), new EqualsToValidator(50)).isValid(55)).be.false();
+            should(new OrValidator(new LessThanValidator(50), new EqualsToValidator(50)).isValid(55)).be.false();
         });
     });
 });
