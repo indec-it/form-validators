@@ -1,9 +1,15 @@
+const {isDate} = require('lodash');
 const {ERROR, WARNING} = require('./constants').validationStates;
 
 class Validator {
 
     constructor(arg) {
-        this._arg = arg;
+        if (isDate(arg)) {
+            this._arg = Date.parse(arg);
+        } else {
+            this._arg = arg;
+        }
+        
         this._invalidState = ERROR;
         this.withErrorMessage('Validation failed');
     }

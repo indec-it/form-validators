@@ -1,18 +1,16 @@
-const {isNumber} = require('lodash');
 const Validator = require('./Validator');
+const {checkArgumentType, convertDateToNumber} = require('../src/util/util');
 
 class GreaterThanValidator extends Validator {
     constructor(arg) {
-        if (!isNumber(arg)) {
-            throw new Error('Argument must be a number.');
-        }
+        checkArgumentType(arg);
 
         super(arg);
         this.withErrorMessage(`Must be greater than ${arg}.`);
     }
 
     isValid(value) {
-        return value > this.arg;
+        return convertDateToNumber(value) > this.arg;
     }
 }
 

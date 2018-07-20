@@ -1,23 +1,24 @@
-const {isNil, isNumber} = require('lodash');
+const {isNil} = require('lodash');
 const Validator = require('./Validator.js');
+const {checkArgumentType, convertDateToNumber} = require('../src/util/util');
 
 class InRangeValidator extends Validator {
-    constructor (arg, arg2) {
-        if (isNil(arg) || isNil(arg2)) {
+    constructor (minValue, maxValue) {
+        if (isNil(minValue) || isNil(maxValue)) {
             throw new Error('Both lower and upper bounds must be specified.');
         }
 
-        if (!isNumber(arg) || !isNumber(arg2)) {
-            throw new Error('Both arguments must be numbers.');
-        }
+        checkArgumentType(minValue);
+        checkArgumentType(maxValue);
 
-        if (arg > arg2) {
+        if (minValue > maxValue) {
             throw new Error('Lower bound must be less or equal than upper bound.');
         }
 
-        super(arg);
-        this._arg2 = arg2;
-        this.withErrorMessage(`Number must be between ${arg} and ${arg2} or be equal to lower or upper bounds.`);
+        super(minValue);
+        this._arg2 = convertDateToNumber(maxValue);
+
+        this.withErrorMessage(`Number must be between ${minValue} and ${maxValue} or be equal to lower or upper bounds.`);
     }
 
     get arg2 () {
@@ -40,9 +41,11 @@ class InRangeValidator extends Validator {
         return this;
     }
 
-    isValid (value) {
+    isValid (arg) {
         let passesLowerCondition;
         let passesUpperCondition;
+
+        const value = convertDateToNumber(arg);
 
         if (this.excludeLowerBoundary) {
             passesLowerCondition = value > this.arg;
