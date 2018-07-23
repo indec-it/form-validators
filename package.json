@@ -1,6 +1,6 @@
 {
   "name": "@indec/form-validators",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Common validators using little or no dependencies",
   "main": "src/index.js",
   "scripts": {
