@@ -12,6 +12,11 @@ describe('Validator', () => {
         validator = new Validator('An error message', null);
     });
 
+    context('#constructor', () => {
+        it('should convert Date to Number', () => {
+            new Validator(new Date(1500000000000)).should.have.properties({_arg: 1500000000000});
+        });
+    });
 
     context('#validate', () => {
 

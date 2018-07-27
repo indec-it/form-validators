@@ -1,7 +1,13 @@
 const Validator = require('../src/LessThanOrEqualsToValidator');
 
 describe ('LessThanOrEqualsToValidator', () => {
+    const createDate = () => new Date(1500000000000);
+
     context ('#isValid', () => {
+        it('should convert Date to Number', () => {
+            new Validator(createDate()).isValid(createDate()).should.be.true();
+        });
+
         it ('should be true for when values are equal', () => {
             new Validator(0).isValid(0).should.be.true();
         });

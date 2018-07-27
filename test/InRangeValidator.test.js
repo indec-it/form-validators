@@ -2,6 +2,7 @@ const Validator = require('../src/InRangeValidator');
 
 describe ('InRangeValidator', () => {
     const range = [0, 4];
+    const createDate = value => new Date(value);
 
     context ('#constructor', () => {
         it ('should throw an Error if either argument is not defined', () => {
@@ -10,12 +11,23 @@ describe ('InRangeValidator', () => {
         });
 
         it ('should throw an Error if either argument is not a number', () => {
-            (() => new Validator('a', 4)).should.throw('Both arguments must be numbers.');
-            (() => new Validator(0, {})).should.throw('Both arguments must be numbers.');
+            (() => new Validator('a', 4)).should.throw('Argument must be a number or Date instance.');
+            (() => new Validator(0, {})).should.throw('Argument must be a number or Date instance.');
+            (() => new Validator(new Date(), {})).should.throw('Argument must be a number or Date instance.');
+            (() => new Validator(5, false)).should.throw('Argument must be a number or Date instance.');
         });
 
         it ('should throw an Error if first argument is greater than the second argument', () => {
             (() => new Validator(4, 0)).should.throw('Lower bound must be less or equal than upper bound.');
+        });
+
+        it ('should convert second argument from Date to Number', () => {
+            new Validator(
+                1,
+                createDate(1600000000000)
+            ).should.have.properties({
+                _arg2: 1600000000000
+            });
         });
     });
 
@@ -38,6 +50,15 @@ describe ('InRangeValidator', () => {
 
         it ('should be false if value is greater than upper bound', () => {
             new Validator(...range).isValid(5).should.be.false();
+        });
+
+        it('should convert Date to Number', () => {
+            new Validator(
+                createDate(1500000000000),
+                createDate(1600000000000)
+            ).isValid(
+                createDate(1550000000000)
+            ).should.be.true();
         });
     });
 

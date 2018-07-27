@@ -1,12 +1,10 @@
-const {isNumber} = require('lodash');
 const Validator = require('./Validator');
 const {GREATER_THAN_ZERO, NO_LESS_THAN_ONE} = require('./constants').lowerBoundaryType;
+const {checkArgumentType, convertDateToNumber} = require('../src/util/util');
 
 class LessThanValidator extends Validator {
     constructor(arg) {
-        if (!isNumber(arg)) {
-            throw new Error('Argument must be a number.');
-        }
+        checkArgumentType(arg);
 
         super(arg);
         this.withErrorMessage(`Must be less than ${arg}.`);
@@ -38,8 +36,9 @@ class LessThanValidator extends Validator {
         }
     }
 
-    isValid(value) {
+    isValid(arg) {
         let satisfiesCondition;
+        const value = convertDateToNumber(arg);
 
         switch (this.lowerBoundaryType) {
             case GREATER_THAN_ZERO:
